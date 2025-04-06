@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<!-- Name: Lucas Klesta -->
+<!-- ID: 1226591784 -->
+
+<!-- Define XML Schema with xs prefix -->
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+
+	<!-- Defined the root element Hotels -->
+	<xsd:element name="Hotels">
+		<xsd:complexType>
+			<xsd:sequence>
+				<!-- Defined the Hotel element within the Hotels -->
+				<xsd:element name="Hotel" maxOccurs="unbounded">
+					<xsd:complexType>
+						<xsd:sequence>
+
+							<!-- Name element defined as a string -->
+							<xsd:element name="Name" type="xsd:string"/>
+
+							<!-- Phone element defined as a string -->
+							<xsd:element name="Phone" type="xsd:string" maxOccurs="unbounded"/>
+
+							<!-- Address defined as a complex type to allow for other elements -->
+							<xsd:element name="Address">
+								<xsd:complexType>
+									<xsd:sequence>
+										<xsd:element name="Number" type="xsd:string"/>
+										<xsd:element name="Street" type="xsd:string"/>
+										<xsd:element name="City" type="xsd:string"/>
+										<xsd:element name="State" type="xsd:string"/>
+										<xsd:element name="Zip" type="xsd:string"/>
+									</xsd:sequence>
+									<!-- Required attribute rating to be used for all hotels -->
+									<xsd:attribute name="NearstAirport" type="xsd:string" use="required"/>
+								</xsd:complexType>
+							</xsd:element>
+
+						</xsd:sequence>
+						<!-- Optional attribute rating to be used for some hotels -->
+						<xsd:attribute name="Rating" type="xsd:decimal" use="optional"/>
+					</xsd:complexType>
+				</xsd:element>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+
+</xsd:schema>
